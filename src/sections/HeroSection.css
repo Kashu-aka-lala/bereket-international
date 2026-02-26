@@ -1,0 +1,205 @@
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-canvas-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-canvas-wrapper canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Dark radial gradient overlay so text is always readable */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(5, 5, 8, 0.1) 0%, rgba(5, 5, 8, 0.65) 60%, rgba(5, 5, 8, 0.9) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    padding-left: max(5vw, 2rem);
+    max-width: 700px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #2ECC71;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #2ECC71;
+    animation: glow-pulse 2s ease infinite;
+}
+
+.hero-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+}
+
+.btn-icon {
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #D4AF37;
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.hero-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(212, 175, 55, 0.3);
+}
+
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, #D4AF37, transparent);
+    animation: scroll-line 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+.mobile-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero-overlay {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .hero-heading {
+        font-size: 2.6rem;
+    }
+
+    .mobile-br {
+        display: block;
+    }
+
+    .hero-actions {
+        gap: 0.8rem;
+    }
+
+    .hero-stats {
+        gap: 1.2rem;
+    }
+}

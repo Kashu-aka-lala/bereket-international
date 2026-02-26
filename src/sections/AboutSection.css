@@ -1,0 +1,102 @@
+.about-section {
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-bg-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.06) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-card {
+    padding: 3rem;
+}
+
+.about-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.about-pillars {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.about-pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.pillar-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.pillar-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #D4AF37;
+    margin-bottom: 0.2rem;
+}
+
+.pillar-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+}
+
+.about-map-wrapper {
+    padding: 1.5rem;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.map-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(212, 175, 55, 0.7);
+    text-align: center;
+}
+
+.world-map-svg {
+    width: 100%;
+    height: auto;
+    flex: 1;
+}
+
+@media (max-width: 900px) {
+    .about-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section {
+        padding: 5rem 0;
+    }
+}

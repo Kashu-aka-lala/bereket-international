@@ -1,0 +1,126 @@
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { gsap } from 'gsap'
+import './WhyChooseUs.css'
+
+const STATS = [
+    { num: 20, suffix: '+', label: 'Countries Served', icon: '🌍' },
+    { num: 500, suffix: '+', label: 'Happy Clients', icon: '🤝' },
+    { num: 10, suffix: '+', label: 'Years Experience', icon: '🏆' },
+]
+
+const FEATURES = [
+    {
+        icon: '✈️',
+        title: 'Global Logistics',
+        desc: 'Door-to-door export management with tracking from warehouse to destination port.',
+        color: '#D4AF37',
+    },
+    {
+        icon: '🔬',
+        title: 'Quality Assured',
+        desc: 'Every batch undergoes rigorous lab testing and certification before shipment.',
+        color: '#2ECC71',
+    },
+    {
+        icon: '📦',
+        title: 'Custom Packaging',
+        desc: 'Bespoke private-label packaging and branding options for wholesale buyers.',
+        color: '#E8A020',
+    },
+    {
+        icon: '💰',
+        title: 'Competitive Pricing',
+        desc: 'Direct sourcing partnerships mean better prices without compromising quality.',
+        color: '#C8A96E',
+    },
+    {
+        icon: '🛡️',
+        title: 'Compliance Ready',
+        desc: 'All products meet international food safety standards including ISO and HACCP.',
+        color: '#9B59B6',
+    },
+    {
+        icon: '📞',
+        title: '24/7 Support',
+        desc: 'Dedicated account managers available around the clock for every client.',
+        color: '#D4AF37',
+    },
+]
+
+function AnimatedCounter({ target, suffix, isVisible }) {
+    const ref = useRef()
+    const [value, setValue] = useState(0)
+
+    useEffect(() => {
+        if (!isVisible) return
+        const obj = { val: 0 }
+        gsap.to(obj, {
+            val: target,
+            duration: 2.2,
+            ease: 'power2.out',
+            delay: 0.3,
+            onUpdate: () => setValue(Math.round(obj.val)),
+        })
+    }, [isVisible, target])
+
+    return (
+        <span ref={ref} className="stat-counter">
+            {value}{suffix}
+        </span>
+    )
+}
+
+export default function WhyChooseUs() {
+    const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
+
+    return (
+        <section id="why-us" ref={ref} className="why-section">
+            <div className="why-bg-glow" />
+            <div className="container">
+                <div className="why-header">
+                    <span className="section-label">Why Partner With Us</span>
+                    <h2 className="section-title">
+                        The Bereket<br />
+                        <span>Advantage</span>
+                    </h2>
+                    <div className="gold-divider" />
+                    <p className="why-subtitle">
+                        A decade of excellence in global food trade — here's what sets us apart.
+                    </p>
+                </div>
+
+                {/* Stats Row */}
+                <div className="stats-row">
+                    {STATS.map(({ num, suffix, label, icon }, i) => (
+                        <div
+                            key={label}
+                            className={`stat-card glass-card ${inView ? 'visible' : ''}`}
+                            style={{ transitionDelay: `${i * 0.15}s` }}
+                        >
+                            <span className="stat-card-icon">{icon}</span>
+                            <AnimatedCounter target={num} suffix={suffix} isVisible={inView} />
+                            <span className="stat-card-label">{label}</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Features Grid */}
+                <div className="features-grid">
+                    {FEATURES.map(({ icon, title, desc, color }, i) => (
+                        <div
+                            key={title}
+                            className={`feature-card glass ${inView ? 'visible' : ''}`}
+                            style={{ '--feat-color': color, transitionDelay: `${0.3 + i * 0.1}s` }}
+                        >
+                            <span className="feat-icon">{icon}</span>
+                            <h4 className="feat-title">{title}</h4>
+                            <p className="feat-desc">{desc}</p>
+                            <div className="feat-glow" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
