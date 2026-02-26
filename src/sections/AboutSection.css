@@ -8,7 +8,7 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(46, 204, 113, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(39, 86, 200, 0.08) 0%, transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -57,7 +57,7 @@
     font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #D4AF37;
+    color: #5B8DEF;
     margin-bottom: 0.2rem;
 }
 
@@ -81,7 +81,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(212, 175, 55, 0.7);
+    color: rgba(91, 141, 239, 0.7);
     text-align: center;
 }
 

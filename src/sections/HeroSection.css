@@ -40,8 +40,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(39, 86, 200, 0.12);
+    border: 1px solid rgba(39, 86, 200, 0.35);
     border-radius: 50px;
     padding: 0.4rem 1rem;
     font-family: 'Outfit', sans-serif;
@@ -56,9 +56,9 @@
 .badge-dot {
     width: 6px;
     height: 6px;
-    background: #2ECC71;
+    background: #5B8DEF;
     border-radius: 50%;
-    box-shadow: 0 0 8px #2ECC71;
+    box-shadow: 0 0 8px #5B8DEF;
     animation: glow-pulse 2s ease infinite;
 }
 
@@ -112,7 +112,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-weight: 700;
-    color: #D4AF37;
+    color: #5B8DEF;
     line-height: 1;
 }
 
@@ -128,7 +128,7 @@
 .hero-divider {
     width: 1px;
     height: 32px;
-    background: rgba(212, 175, 55, 0.3);
+    background: rgba(39, 86, 200, 0.35);
 }
 
 .hero-scroll-hint {
@@ -151,7 +151,7 @@
 .scroll-line {
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, #D4AF37, transparent);
+    background: linear-gradient(to bottom, #2756C8, transparent);
     animation: scroll-line 1.5s ease-in-out infinite;
 }
 

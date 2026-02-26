@@ -64,11 +64,13 @@ export default function IntroScene({ onComplete }) {
             targets[i * 3 + 1] = target ? target[1] : 0
             targets[i * 3 + 2] = target ? target[2] : 0
 
-            // Gold shades
+            // Blue shades matching the logo gradient
             const shade = 0.7 + Math.random() * 0.3
-            colors[i * 3] = shade * 0.83
-            colors[i * 3 + 1] = shade * 0.69
-            colors[i * 3 + 2] = shade * 0.22
+            // Mix between deep royal blue (#1E3799) and sky blue (#5B8DEF)
+            const t = Math.random()
+            colors[i * 3] = shade * (0.12 + t * 0.24)     // R: 0.12→0.36
+            colors[i * 3 + 1] = shade * (0.22 + t * 0.32) // G: 0.22→0.55
+            colors[i * 3 + 2] = shade * (0.6 + t * 0.34)  // B: 0.60→0.94
         }
 
         const geometry = new THREE.BufferGeometry()
@@ -92,7 +94,7 @@ export default function IntroScene({ onComplete }) {
         // ── Ring glow ──
         const ringGeometry = new THREE.TorusGeometry(60, 0.4, 16, 100)
         const ringMaterial = new THREE.MeshBasicMaterial({
-            color: 0xD4AF37,
+            color: 0x2756C8,
             transparent: true,
             opacity: 0,
             wireframe: false,
@@ -102,7 +104,7 @@ export default function IntroScene({ onComplete }) {
         scene.add(ring)
 
         // ── Ambient light ──
-        scene.add(new THREE.AmbientLight(0xD4AF37, 0.5))
+        scene.add(new THREE.AmbientLight(0x2756C8, 0.5))
 
         // ── State ──
         let phase = 0 // 0=gather, 1=hold, 2=shine, 3=fade
@@ -117,9 +119,9 @@ export default function IntroScene({ onComplete }) {
       justify-content:center;pointer-events:none;z-index:10;opacity:0;transition:opacity 1s ease;
     `
         overlay.innerHTML = `
-      <p style="font-family:'Outfit',sans-serif;font-size:0.8rem;letter-spacing:0.3em;color:#D4AF37;text-transform:uppercase;margin-bottom:1rem;">Est. 2014</p>
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);color:#fff;text-align:center;line-height:1.1;text-shadow:0 0 40px rgba(212,175,55,0.8);">
-        Bereket<br><span style="color:#D4AF37;">Internationals</span>
+      <p style="font-family:'Outfit',sans-serif;font-size:0.8rem;letter-spacing:0.3em;color:#5B8DEF;text-transform:uppercase;margin-bottom:1rem;">Est. 2014</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);color:#fff;text-align:center;line-height:1.1;text-shadow:0 0 40px rgba(39,86,200,0.8);">
+        Bereket<br><span style="color:#5B8DEF;">Internationals</span>
       </h1>
       <p style="font-family:'Outfit',sans-serif;font-size:1rem;letter-spacing:0.15em;color:rgba(255,255,255,0.6);margin-top:1rem;">Global Quality. Trusted Worldwide.</p>
     `

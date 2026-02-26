@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import logo from '../assets/logo.jpg'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -21,8 +22,11 @@ export default function Navbar() {
         <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="nav-inner">
                 <div className="nav-logo" onClick={() => scrollTo('hero')}>
-                    <span className="logo-b">B</span>
-                    <span className="logo-text">ereket<span className="logo-int"> Internationals</span></span>
+                    <img src={logo} alt="Bereket International" className="nav-logo-img" />
+                    <div className="nav-logo-text">
+                        <span className="nav-logo-name">Bereket</span>
+                        <span className="nav-logo-sub">International</span>
+                    </div>
                 </div>
 
                 <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>

@@ -1,3 +1,4 @@
+import logo from '../assets/logo.jpg'
 import './Footer.css'
 
 export default function Footer() {
@@ -13,8 +14,11 @@ export default function Footer() {
             <div className="container footer-inner">
                 <div className="footer-brand">
                     <div className="footer-logo">
-                        <span className="footer-logo-b">B</span>
-                        <span className="footer-logo-text">ereket <span className="footer-logo-int">Internationals</span></span>
+                        <img src={logo} alt="Bereket International" className="footer-logo-img" />
+                        <div className="footer-logo-wordmark">
+                            <span className="footer-logo-text">Bereket</span>
+                            <span className="footer-logo-int">Internationals</span>
+                        </div>
                     </div>
                     <p className="footer-tagline">Global Quality. Trusted Worldwide.</p>
                     <p className="footer-about">

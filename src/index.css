@@ -3,23 +3,37 @@
    ================================================ */
 
 :root {
-  --gold: #D4AF37;
-  --gold-light: #F5D76E;
-  --gold-dark: #A0871A;
-  --bg: #050508;
-  --bg-2: #0d0d14;
+  /* — Blue palette extracted from logo gradient — */
+  --blue: #2756C8;
+  /* bright cobalt — primary accent */
+  --blue-light: #5B8DEF;
+  /* sky blue — highlights */
+  --blue-dark: #1E3799;
+  /* royal blue — deep accent */
+  --blue-deeper: #0D1B4B;
+  /* navy — darkest */
+  --blue-glow: rgba(39, 86, 200, 0.25);
+  --blue-glow-soft: rgba(91, 141, 239, 0.15);
+
+  /* Kept for backwards-compat aliases (mapped to blue) */
+  --gold: #2756C8;
+  --gold-light: #5B8DEF;
+  --gold-dark: #1E3799;
+  --green: #4DA8FF;
+  --green-soft: #1E3799;
+
+  --bg: #03050F;
+  --bg-2: #070C1E;
   --bg-card: rgba(255, 255, 255, 0.04);
-  --green: #2ECC71;
-  --green-soft: #1a5c35;
   --white: #ffffff;
-  --white-60: rgba(255,255,255,0.6);
-  --white-30: rgba(255,255,255,0.3);
-  --white-10: rgba(255,255,255,0.08);
-  --border: rgba(212,175,55,0.25);
-  --glass-bg: rgba(255,255,255,0.05);
-  --glass-border: rgba(255,255,255,0.12);
-  --shadow-gold: 0 0 40px rgba(212,175,55,0.2);
-  --shadow-green: 0 0 40px rgba(46,204,113,0.15);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-10: rgba(255, 255, 255, 0.08);
+  --border: rgba(39, 86, 200, 0.28);
+  --glass-bg: rgba(10, 20, 60, 0.35);
+  --glass-border: rgba(91, 141, 239, 0.18);
+  --shadow-blue: 0 0 40px rgba(39, 86, 200, 0.25);
+  --shadow-blue-soft: 0 0 40px rgba(91, 141, 239, 0.15);
   --font-body: 'Outfit', sans-serif;
   --font-display: 'Playfair Display', serif;
   --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -49,19 +63,26 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--gold-dark);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold);
 }
 
 /* ====== TYPOGRAPHY ====== */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.15;
@@ -73,7 +94,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--blue-light);
   display: block;
   margin-bottom: 1rem;
 }
@@ -86,7 +107,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .section-title span {
-  color: var(--gold);
+  color: var(--blue-light);
 }
 
 /* ====== GLASS MORPHISM ====== */
@@ -99,20 +120,20 @@ h1, h2, h3, h4, h5 {
 }
 
 .glass-card {
-  background: rgba(255,255,255,0.04);
+  background: rgba(7, 15, 45, 0.5);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(212,175,55,0.15);
+  border: 1px solid rgba(39, 86, 200, 0.2);
   border-radius: 20px;
   padding: 2rem;
   transition: var(--transition);
 }
 
 .glass-card:hover {
-  border-color: rgba(212,175,55,0.4);
-  background: rgba(255,255,255,0.07);
+  border-color: rgba(91, 141, 239, 0.5);
+  background: rgba(10, 25, 70, 0.6);
   transform: translateY(-6px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.4), var(--shadow-gold);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), var(--shadow-blue);
 }
 
 /* ====== BUTTONS ====== */
@@ -121,8 +142,8 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   gap: 0.6rem;
   padding: 1rem 2.2rem;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: #000;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
@@ -141,7 +162,7 @@ h1, h2, h3, h4, h5 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  background: linear-gradient(135deg, var(--blue-light), var(--blue));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -152,7 +173,7 @@ h1, h2, h3, h4, h5 {
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(212,175,55,0.4);
+  box-shadow: 0 20px 40px rgba(39, 86, 200, 0.5);
 }
 
 .btn-primary span {
@@ -166,7 +187,7 @@ h1, h2, h3, h4, h5 {
   gap: 0.6rem;
   padding: 0.9rem 2rem;
   background: transparent;
-  color: var(--gold);
+  color: var(--blue-light);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.9rem;
@@ -179,48 +200,102 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-secondary:hover {
-  background: rgba(212,175,55,0.1);
-  border-color: var(--gold);
+  background: rgba(39, 86, 200, 0.12);
+  border-color: var(--blue);
   transform: translateY(-2px);
 }
 
 /* ====== FLOATING ANIMATION ====== */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-12px) rotate(1deg); }
-  66% { transform: translateY(-6px) rotate(-1deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
 }
 
 @keyframes floatDelay {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-18px) rotate(-1.5deg); }
-  66% { transform: translateY(-8px) rotate(1deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-18px) rotate(-1.5deg);
+  }
+
+  66% {
+    transform: translateY(-8px) rotate(1deg);
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.2); }
-  50% { box-shadow: 0 0 40px rgba(212,175,55,0.5), 0 0 80px rgba(212,175,55,0.2); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 80px rgba(212, 175, 55, 0.2);
+  }
 }
 
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes particle-drift {
-  0% { transform: translate(0, 0); opacity: 0.4; }
-  50% { opacity: 0.8; }
-  100% { transform: translate(var(--dx, 30px), var(--dy, -50px)); opacity: 0; }
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(var(--dx, 30px), var(--dy, -50px));
+    opacity: 0;
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 @keyframes counter-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ====== LAYOUT ====== */
@@ -237,18 +312,18 @@ section {
 
 /* ====== GOLD GRADIENT TEXT ====== */
 .text-gold {
-  color: var(--gold);
+  color: var(--blue-light);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  background: linear-gradient(135deg, var(--blue-light), var(--blue), var(--blue-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-shimmer {
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue-light), var(--blue-dark));
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -260,7 +335,14 @@ section {
 .gold-divider {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  margin: 1.5rem auto;
+}
+
+.blue-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
   margin: 1.5rem auto;
 }
 
@@ -269,6 +351,7 @@ section {
   .container {
     padding: 0 1.25rem;
   }
+
   .section-title {
     font-size: clamp(1.6rem, 7vw, 2.4rem);
   }
