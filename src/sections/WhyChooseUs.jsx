@@ -17,8 +17,8 @@ const FEATURES = [
     },
     {
         icon: '🔬',
-        title: 'Quality Assured',
-        desc: 'Every batch undergoes rigorous lab testing and certification before shipment.',
+        title: 'Nutritionally Fortified',
+        desc: 'Our food products are packed with extra vitamins and minerals so you get more health benefits in every bite.',
         color: '#2ECC71',
     },
     {
@@ -35,8 +35,8 @@ const FEATURES = [
     },
     {
         icon: '🛡️',
-        title: 'Compliance Ready',
-        desc: 'All products meet international food safety standards including ISO and HACCP.',
+        title: 'DRAP Approved',
+        desc: 'Our digestive and wellness products are certified by the Drug Regulatory Authority of Pakistan (DRAP), meaning they are safe, tested, and genuinely effective.',
         color: '#9B59B6',
     },
     {
