@@ -84,8 +84,10 @@ export default function WhyChooseUs() {
                         <span>Advantage</span>
                     </h2>
                     <div className="gold-divider" />
-                    <p className="why-subtitle">
-                        A decade of excellence in global food trade — here's what sets us apart.
+                    <p className="why-subtitle" style={{ maxWidth: '800px', margin: '1rem auto 2rem' }}>
+                        At Bereket Internationals, we don't just export products; we build powerful food and wellness brands that resonate across borders.
+                        As a premier international manufacturer and distributor, our portfolio is crafted to meet the highest global standards.
+                        Whether it is our staple dietary grains or our advanced fortified nutritional lines, we guarantee excellence, transparency, and a commitment to enriching communities worldwide.
                     </p>
                 </div>
 
