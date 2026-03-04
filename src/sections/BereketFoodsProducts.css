@@ -182,14 +182,6 @@
     display: none;
 }
 
-/* Center the last card (Bereket Liffest) alone on its row */
-.bfp-card:last-child {
-    grid-column: 1 / -1;
-    max-width: 320px;
-    margin: 0 auto;
-    width: 100%;
-}
-
 /* ── Products Grid ── */
 .bfp-grid-wrap {
     max-width: 1400px;
@@ -198,13 +190,16 @@
 }
 
 .bfp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 28px;
 }
 
 /* ── Product Card ── */
 .bfp-card {
+    flex: 1 1 300px;
+    max-width: 420px;
     opacity: 0;
     transform: translateY(40px) scale(0.95);
     transition:
@@ -469,17 +464,6 @@
 
     .bfp-grid-wrap {
         padding: 0 16px 60px;
-    }
-
-    .bfp-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .bfp-grid {
-        grid-template-columns: 1fr;
     }
 }
 
