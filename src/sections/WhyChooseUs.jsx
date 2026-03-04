@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import imgExport from '../assets/major-grains.jpg'
 import imgDrap from '../assets/jhat-hazam.jpg'
+import imgShip from '../assets/export-ship.jpg'
 import './WhyChooseUs.css'
 
 const STATS = [
@@ -110,8 +111,7 @@ export default function WhyChooseUs() {
                             </p>
                         </div>
                         <div className="why-alt-image">
-                            {/* Placeholder image for now until user provides one */}
-                            <img src={imgExport} alt="Global Export Logistics" style={{ filter: 'grayscale(50%)' }} />
+                            <img src={imgShip} alt="Global Export Logistics" />
                         </div>
                     </div>
                 </div>
