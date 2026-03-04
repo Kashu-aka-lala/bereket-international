@@ -73,36 +73,8 @@ export default function WhyChooseUs() {
 
                 {/* Alternating Cards */}
                 <div className="why-alt-container">
-                    {/* Card 1: Fortified + Export Image */}
+                    {/* Card 1: Global Export */}
                     <div className={`why-alt-card ${inView ? 'visible' : ''}`}>
-                        <div className="why-alt-content glass-card">
-                            <span className="why-alt-icon">🔬</span>
-                            <h3 className="why-alt-title">Nutritionally Fortified</h3>
-                            <p className="why-alt-desc">
-                                At Bereket Internationals, we believe in delivering more than just basic calories. Our portfolio products are fortified with essential vitamins and minerals, upgrading everyday meals into powerful nutritional choices. Whether we are exporting to neighboring regions or across oceans, our standard is to guarantee excellence and enhance global well-being, one serving at a time.
-                            </p>
-                        </div>
-                        <div className="why-alt-image">
-                            <img src={imgExport} alt="Exporting globally" />
-                        </div>
-                    </div>
-
-                    {/* Card 2: DRAP + Digestive Image */}
-                    <div className={`why-alt-card reverse ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
-                        <div className="why-alt-content glass-card">
-                            <span className="why-alt-icon">🛡️</span>
-                            <h3 className="why-alt-title">DRAP Approved Excellence</h3>
-                            <p className="why-alt-desc">
-                                Trust is our core ingredient. Our specialized digestive and wellness lines have earned rigorous certification from the Drug Regulatory Authority of Pakistan (DRAP). This means when you choose Bereket, you are choosing products that have been scientifically validated for safety, purity, and clinical-backed effectiveness globally.
-                            </p>
-                        </div>
-                        <div className="why-alt-image">
-                            <img src={imgDrap} alt="DRAP Approved Digestive Product" />
-                        </div>
-                    </div>
-
-                    {/* Card 3: Global Export */}
-                    <div className={`why-alt-card ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
                         <div className="why-alt-content glass-card">
                             <span className="why-alt-icon">🚢</span>
                             <h3 className="why-alt-title">Exporting Health Globally</h3>
@@ -112,6 +84,34 @@ export default function WhyChooseUs() {
                         </div>
                         <div className="why-alt-image">
                             <img src={imgShip} alt="Global Export Logistics" />
+                        </div>
+                    </div>
+
+                    {/* Card 2: Fortified */}
+                    <div className={`why-alt-card reverse ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+                        <div className="why-alt-content glass-card">
+                            <span className="why-alt-icon">🔬</span>
+                            <h3 className="why-alt-title">Nutritionally Fortified</h3>
+                            <p className="why-alt-desc">
+                                At Bereket Internationals, we believe in delivering more than just basic calories. Our portfolio products are fortified with essential vitamins and minerals, upgrading everyday meals into powerful nutritional choices. Whether we are exporting to neighboring regions or across oceans, our standard is to guarantee excellence and enhance global well-being, one serving at a time.
+                            </p>
+                        </div>
+                        <div className="why-alt-image">
+                            <img src={imgExport} alt="Nutritionally Fortified Products" />
+                        </div>
+                    </div>
+
+                    {/* Card 3: DRAP + Digestive Image */}
+                    <div className={`why-alt-card ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+                        <div className="why-alt-content glass-card">
+                            <span className="why-alt-icon">🛡️</span>
+                            <h3 className="why-alt-title">DRAP Approved Excellence</h3>
+                            <p className="why-alt-desc">
+                                Trust is our core ingredient. Our specialized digestive and wellness lines have earned rigorous certification from the Drug Regulatory Authority of Pakistan (DRAP). This means when you choose Bereket, you are choosing products that have been scientifically validated for safety, purity, and clinical-backed effectiveness globally.
+                            </p>
+                        </div>
+                        <div className="why-alt-image">
+                            <img src={imgDrap} alt="DRAP Approved Digestive Product" />
                         </div>
                     </div>
                 </div>
