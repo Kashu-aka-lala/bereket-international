@@ -6,6 +6,7 @@ import porridgeImg from '../assets/porridge.jpg'
 import kuvvetImg from '../assets/kuvvet.jpg'
 import jhatHazamImg from '../assets/jhat-hazam.jpg'
 import liffestImg from '../assets/liffest.jpg'
+import riverdaleImg from '../assets/riverdale.png'
 import './BereketFoodsProducts.css'
 
 // ── Product data — Bereket Foods export catalogue ──────────────────────────
@@ -96,6 +97,18 @@ const ALL_PRODUCTS = [
         specs: ['50g', '100g', '250g'],
         exportTag: 'Export Ready',
         desc: 'Bereket Liffest is a high-growth lifestyle snack range — crispy, portion-controlled, and designed for today\'s on-the-go consumer. Trending across convenience retail, airline catering, and hospitality channels, Liffest snacks are produced with clean-label ingredients and hygienic export-certified packaging. A standout private-label opportunity for B2B buyers in the booming global snack foods market.',
+    },
+    {
+        id: 'riverdale',
+        name: 'Riverdale',
+        tagline: 'Premium Quality · Natural · Delicious',
+        category: 'Nutrition',
+        badge: 'New Range',
+        emoji: '🌿',
+        img: riverdaleImg,
+        specs: ['100g', '250g', '500g'],
+        exportTag: 'Export Ready',
+        desc: 'Riverdale is a new addition to the Bereket family, offering premium nutritional products crafted from natural ingredients to deliver delicious, wholesome nourishment.',
     },
 ]
 

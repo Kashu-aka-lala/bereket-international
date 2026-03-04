@@ -5,6 +5,7 @@ import prod3 from '../assets/kuv.png'
 import prod4 from '../assets/lif.png'
 import prod5 from '../assets/mg.png'
 import prod6 from '../assets/niwa.png'
+import riverdaleLogo from '../assets/riverdale.png'
 import './HomeProductsShowcase.css'
 
 const PRODUCT_IMAGES = [
@@ -14,6 +15,7 @@ const PRODUCT_IMAGES = [
     { name: 'Product 4', src: prod4, defaultScale: 1.4, hoverScale: 1.6, to: "/products" },
     { name: 'Product 5', src: prod5, defaultScale: 2.2, hoverScale: 2.4, to: "/products" }, // Major Grains
     { name: 'Product 6', src: prod6, defaultScale: 2.3, hoverScale: 2.5, to: "/products" }, // Niwala
+    { name: 'Riverdale', src: riverdaleLogo, defaultScale: 1.5, hoverScale: 1.7, to: "/products" },
 ]
 
 export default function HomeProductsShowcase() {
