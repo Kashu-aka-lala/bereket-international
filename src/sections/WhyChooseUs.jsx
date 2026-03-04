@@ -1,50 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
+import imgExport from '../assets/major-grains.jpg'
+import imgDrap from '../assets/jhat-hazam.jpg'
 import './WhyChooseUs.css'
 
 const STATS = [
     { num: 200, suffix: '+', label: 'Happy Clients', icon: '🤝', tagline: 'National and international 200+ clients', color: '#5B8DEF' },
     { num: 7, suffix: '', label: 'Product Brands', icon: '🏷️', tagline: 'Distinct Bereket food brands exported', color: '#9B59B6' },
-]
-
-const FEATURES = [
-    {
-        icon: '✈️',
-        title: 'Global Logistics',
-        desc: 'Door-to-door export management with tracking from warehouse to destination port.',
-        color: '#D4AF37',
-    },
-    {
-        icon: '🔬',
-        title: 'Nutritionally Fortified',
-        desc: 'Our food products are packed with extra vitamins and minerals so you get more health benefits in every bite.',
-        color: '#2ECC71',
-    },
-    {
-        icon: '📦',
-        title: 'Custom Packaging',
-        desc: 'Bespoke private-label packaging and branding options for wholesale buyers.',
-        color: '#E8A020',
-    },
-    {
-        icon: '💰',
-        title: 'Competitive Pricing',
-        desc: 'Direct sourcing partnerships mean better prices without compromising quality.',
-        color: '#C8A96E',
-    },
-    {
-        icon: '🛡️',
-        title: 'DRAP Approved',
-        desc: 'Our digestive and wellness products are certified by the Drug Regulatory Authority of Pakistan (DRAP), meaning they are safe, tested, and genuinely effective.',
-        color: '#9B59B6',
-    },
-    {
-        icon: '📞',
-        title: '24/7 Support',
-        desc: 'Dedicated account managers available around the clock for every client.',
-        color: '#D4AF37',
-    },
 ]
 
 function AnimatedCounter({ target, suffix, isVisible }) {
@@ -107,20 +70,35 @@ export default function WhyChooseUs() {
                     ))}
                 </div>
 
-                {/* Features Grid */}
-                <div className="features-grid">
-                    {FEATURES.map(({ icon, title, desc, color }, i) => (
-                        <div
-                            key={title}
-                            className={`feature-card glass ${inView ? 'visible' : ''}`}
-                            style={{ '--feat-color': color, transitionDelay: `${0.3 + i * 0.1}s` }}
-                        >
-                            <span className="feat-icon">{icon}</span>
-                            <h4 className="feat-title">{title}</h4>
-                            <p className="feat-desc">{desc}</p>
-                            <div className="feat-glow" />
+                {/* Alternating Cards */}
+                <div className="why-alt-container">
+                    {/* Card 1: Fortified + Export Image */}
+                    <div className={`why-alt-card ${inView ? 'visible' : ''}`}>
+                        <div className="why-alt-content glass-card">
+                            <span className="why-alt-icon">🔬</span>
+                            <h3 className="why-alt-title">Nutritionally Fortified</h3>
+                            <p className="why-alt-desc">
+                                At Bereket Internationals, we believe in delivering more than just basic calories. Our portfolio products are fortified with essential vitamins and minerals, upgrading everyday meals into powerful nutritional choices. Whether we are exporting to neighboring regions or across oceans, our standard is to guarantee excellence and enhance global well-being, one serving at a time.
+                            </p>
                         </div>
-                    ))}
+                        <div className="why-alt-image">
+                            <img src={imgExport} alt="Exporting globally" />
+                        </div>
+                    </div>
+
+                    {/* Card 2: DRAP + Digestive Image */}
+                    <div className={`why-alt-card reverse ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+                        <div className="why-alt-content glass-card">
+                            <span className="why-alt-icon">🛡️</span>
+                            <h3 className="why-alt-title">DRAP Approved Excellence</h3>
+                            <p className="why-alt-desc">
+                                Trust is our core ingredient. Our specialized digestive and wellness lines have earned rigorous certification from the Drug Regulatory Authority of Pakistan (DRAP). This means when you choose Bereket, you are choosing products that have been scientifically validated for safety, purity, and clinical-backed effectiveness globally.
+                            </p>
+                        </div>
+                        <div className="why-alt-image">
+                            <img src={imgDrap} alt="DRAP Approved Digestive Product" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

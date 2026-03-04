@@ -124,98 +124,105 @@
     max-width: 160px;
 }
 
-/* ── Features ── */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+/* ── Alternating Cards ── */
+.why-alt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    margin-top: 3rem;
 }
 
-.feature-card {
-    padding: 2rem;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
+.why-alt-card {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease, border-color 0.3s ease;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.feature-card.visible {
+.why-alt-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.feature-card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: var(--feat-color);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(var(--feat-color), 0.1);
-    transform: translateY(-6px) !important;
+.why-alt-card.reverse {
+    flex-direction: row-reverse;
 }
 
-.feat-icon {
-    font-size: 2rem;
+.why-alt-content {
+    flex: 1;
+    padding: 3rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.why-alt-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.why-alt-icon {
+    font-size: 2.8rem;
     display: block;
-    margin-bottom: 1rem;
-    transition: transform 0.4s ease;
+    margin-bottom: 1.2rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
-.feature-card:hover .feat-icon {
-    transform: scale(1.2) translateY(-4px);
-}
-
-.feat-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
+.why-alt-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.6rem;
-    transition: color 0.3s ease;
+    margin-bottom: 1rem;
 }
 
-.feature-card:hover .feat-title {
-    color: var(--feat-color);
-}
-
-.feat-desc {
+.why-alt-desc {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.7;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.8;
 }
 
-.feat-glow {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 40px;
-    background: var(--feat-color);
-    border-radius: 50%;
-    filter: blur(20px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.why-alt-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    aspect-ratio: 4/3;
+    width: 100%;
 }
 
-.feature-card:hover .feat-glow {
-    opacity: 0.15;
+.why-alt-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.why-alt-card:hover .why-alt-image img {
+    transform: scale(1.08);
 }
 
 @media (max-width: 900px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
-    .stats-row {
-        grid-template-columns: 1fr;
+    .why-alt-card,
+    .why-alt-card.reverse {
+        flex-direction: column;
+        gap: 2rem;
     }
 }
 
 @media (max-width: 600px) {
-    .features-grid {
-        grid-template-columns: 1fr;
+    .why-alt-content {
+        padding: 2rem;
     }
 
     .why-section {
