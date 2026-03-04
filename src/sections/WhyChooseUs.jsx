@@ -99,6 +99,21 @@ export default function WhyChooseUs() {
                             <img src={imgDrap} alt="DRAP Approved Digestive Product" />
                         </div>
                     </div>
+
+                    {/* Card 3: Global Export */}
+                    <div className={`why-alt-card ${inView ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+                        <div className="why-alt-content glass-card">
+                            <span className="why-alt-icon">🚢</span>
+                            <h3 className="why-alt-title">Exporting Health Globally</h3>
+                            <p className="why-alt-desc">
+                                We don't just supply ingredients; we supply health. By combining our DRAP-approved formulas with nutritionally fortified processing, Bereket Internationals exports high-value, safe, and effective products that set new standards in international markets. With a robust logistics network, we ensure these premium products reach global destinations fresh, compliant, and ready for consumers.
+                            </p>
+                        </div>
+                        <div className="why-alt-image">
+                            {/* Placeholder image for now until user provides one */}
+                            <img src={imgExport} alt="Global Export Logistics" style={{ filter: 'grayscale(50%)' }} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
