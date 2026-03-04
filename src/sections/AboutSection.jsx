@@ -85,6 +85,9 @@ export default function AboutSection() {
                     <p className="about-text" style={{ marginTop: '1rem' }}>
                         With a decade of experience in international trade, we bridge the gap between producers and markets — ensuring quality, consistency, and trust at every step of the supply chain.
                     </p>
+                    <p className="about-text" style={{ marginTop: '1rem' }}>
+                        Our extensive portfolio ranges from manufacturing staple food products, high-quality nutrition, and wellness lines, to supplying essential commodities globally. By integrating modern food technology with sustainable sourcing, we are committed to enriching the lives of communities across the world.
+                    </p>
 
                     <div className="about-pillars">
                         {[
