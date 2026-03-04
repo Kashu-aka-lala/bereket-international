@@ -1,0 +1,3 @@
+/* Beauty division uses the shared FoodSection.css styles.
+   Any beauty-specific overrides can go here. */
+@import './FoodSection.css';

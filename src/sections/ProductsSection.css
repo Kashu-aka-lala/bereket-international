@@ -55,27 +55,6 @@
     transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1) !important;
     will-change: transform;
     overflow: hidden;
-    animation: float 5s ease-in-out infinite;
-}
-
-.product-card:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.product-card:nth-child(2) {
-    animation-delay: 0.8s;
-}
-
-.product-card:nth-child(3) {
-    animation-delay: 1.6s;
-}
-
-.product-card:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.product-card:nth-child(5) {
-    animation-delay: 1.2s;
 }
 
 .product-card.hovered {
@@ -208,6 +187,148 @@
     border: 1px solid rgba(39, 86, 200, 0.3);
     border-radius: 50px;
     padding: 0.2rem 0.6rem;
+}
+
+
+/* Modal */
+.product-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(3, 5, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.3s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.product-modal {
+    position: relative;
+    background: rgba(10, 15, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    max-width: 500px;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    animation: slideUpModal 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes slideUpModal {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.product-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.product-modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.product-modal-icon-wrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+}
+
+.product-modal-emoji {
+    font-size: 3rem;
+    display: block;
+    line-height: 1;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    animation: hpsFloat 4s ease-in-out infinite;
+}
+
+.product-modal-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, var(--modal-glow, rgba(212, 175, 55, 0.3)) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(15px);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.product-modal-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.product-modal-tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--modal-color, #D4AF37);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.product-modal-divider {
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 1.5rem auto;
+}
+
+.product-modal-fulldesc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.modal-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
 }
 
 @media (max-width: 768px) {

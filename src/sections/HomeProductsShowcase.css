@@ -1,0 +1,274 @@
+/* ── Home Products Showcase ── */
+.hps-section {
+    background: #05050a;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle gold glow behind the section */
+.hps-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(196, 160, 100, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hps-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Header */
+.hps-header {
+    margin-bottom: 40px;
+}
+
+.hps-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #c4a064;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.hps-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.8rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hps-title span {
+    background: linear-gradient(135deg, #c4a064, #e8c98a, #c4a064);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: hpsShimmer 4s linear infinite;
+}
+
+@keyframes hpsShimmer {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+/* Brand pills */
+.hps-brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 36px;
+}
+
+.hps-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(196, 160, 100, 0.2);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* shimmer sweep */
+.hps-pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(196, 160, 100, 0.12) 50%, transparent 70%);
+    transform: translateX(-120%);
+    pointer-events: none;
+}
+
+.hps-pill:hover::before {
+    transform: translateX(120%);
+    transition: transform 0.55s ease;
+}
+
+.hps-pill:hover {
+    background: rgba(196, 160, 100, 0.1);
+    border-color: rgba(196, 160, 100, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(196, 160, 100, 0.15);
+}
+
+.hps-pill-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.hps-pill-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.02em;
+    transition: color 0.25s;
+    white-space: nowrap;
+}
+
+.hps-pill:hover .hps-pill-name {
+    color: #c4a064;
+}
+
+.hps-pill-arrow {
+    font-size: 0.8rem;
+    color: rgba(196, 160, 100, 0.5);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.hps-pill:hover .hps-pill-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* CTA link */
+.hps-cta {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #c4a064;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(196, 160, 100, 0.4);
+    padding-bottom: 2px;
+    transition: border-color 0.25s, color 0.25s, letter-spacing 0.3s;
+}
+
+.hps-cta:hover {
+    color: #e8c98a;
+    border-color: #e8c98a;
+    letter-spacing: 0.1em;
+}
+
+/* Products Box Grid */
+.hps-logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.hps-product-box {
+    position: relative;
+    width: 170px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.hps-product-box:hover {
+    transform: translateY(-8px);
+    z-index: 10;
+}
+
+.hps-product-box-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transform: scale(var(--img-scale, 1.4));
+    transition: filter 0.4s ease;
+    /* Transform is now primarily controlled by animation */
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)) saturate(1.1) brightness(1.05);
+    animation: floatGentle 5s ease-in-out infinite;
+    animation-delay: var(--anim-delay, 0s);
+}
+
+.hps-product-box:hover .hps-product-box-img {
+    filter: drop-shadow(0 15px 30px rgba(196, 160, 100, 0.5)) saturate(1.3) brightness(1.15);
+    animation: hoverWobble 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    /* Reset delay on hover so it responds immediately */
+    animation-delay: 0s;
+}
+
+@keyframes floatGentle {
+
+    0%,
+    100% {
+        transform: scale(var(--img-scale, 1.4)) translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: scale(var(--img-scale, 1.4)) translateY(-5px) rotate(2deg);
+    }
+
+    66% {
+        transform: scale(var(--img-scale, 1.4)) translateY(3px) rotate(-1.5deg);
+    }
+}
+
+@keyframes hoverWobble {
+
+    0%,
+    100% {
+        transform: scale(var(--img-scale-hover, 1.6)) rotate(3deg) translateY(-2px);
+    }
+
+    50% {
+        /* Slight pulse and counter-rotation */
+        transform: scale(calc(var(--img-scale-hover, 1.6) * 1.03)) rotate(-2deg) translateY(2px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hps-product-box {
+        width: 140px;
+        height: 90px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hps-section {
+        padding: 60px 16px;
+    }
+
+    .hps-pill-name {
+        font-size: 0.82rem;
+    }
+
+    .hps-pill {
+        padding: 9px 16px;
+    }
+}

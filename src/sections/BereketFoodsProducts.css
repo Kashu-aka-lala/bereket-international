@@ -1,0 +1,712 @@
+/* ═══════════════════════════════════════════════════
+   BEREKET FOODS — PRODUCTS CATALOGUE PAGE
+   ═══════════════════════════════════════════════════ */
+
+.bfp-section {
+    background: #05050a;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ── Hero ── */
+.bfp-hero {
+    position: relative;
+    text-align: center;
+    padding: 140px 24px 80px;
+    background: linear-gradient(180deg, #0a0a18 0%, #05050a 100%);
+    overflow: hidden;
+}
+
+.bfp-hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 45% at 50% 0%, rgba(196, 160, 100, 0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 25% at 80% 90%, rgba(196, 160, 100, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+    animation: bfpGlowPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes bfpGlowPulse {
+    from {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.06);
+    }
+}
+
+.bfp-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.bfp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c4a064;
+    font-weight: 600;
+    margin-bottom: 18px;
+    animation: bfpFadeUp 0.8s ease both;
+}
+
+.bfp-eyebrow-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c4a064;
+    animation: bfpPulse 2s ease-in-out infinite;
+}
+
+@keyframes bfpPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.6);
+    }
+}
+
+.bfp-hero-title {
+    font-size: clamp(2.6rem, 6.5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.06;
+    margin: 0 0 22px;
+    background: linear-gradient(135deg, #fff 25%, #c4a064 60%, #fff 90%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: bfpFadeUp 0.9s ease 0.15s both, bfpShimmer 5s linear 1s infinite;
+}
+
+@keyframes bfpShimmer {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.bfp-hero-sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.58);
+    line-height: 1.75;
+    max-width: 580px;
+    margin: 0 auto 36px;
+    animation: bfpFadeUp 1s ease 0.3s both;
+}
+
+.bfp-hero-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c4a064, transparent);
+    margin: 0 auto;
+    animation: bfpLineExpand 1.2s ease 0.5s both;
+}
+
+@keyframes bfpLineExpand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 90px;
+        opacity: 1;
+    }
+}
+
+@keyframes bfpFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Filter bar ── */
+.bfp-filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 24px 48px;
+}
+
+.bfp-filter-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.bfp-filter-btn:hover,
+.bfp-filter-btn.active {
+    background: rgba(196, 160, 100, 0.15);
+    border-color: rgba(196, 160, 100, 0.5);
+    color: #c4a064;
+    box-shadow: 0 0 18px rgba(196, 160, 100, 0.15);
+}
+
+/* Hide weight/size pills on all cards */
+.bfp-card-specs {
+    display: none;
+}
+
+/* Center the last card (Bereket Liffest) alone on its row */
+.bfp-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── Products Grid ── */
+.bfp-grid-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+}
+
+.bfp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+}
+
+/* ── Product Card ── */
+.bfp-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition:
+        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bfp-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.bfp-card-inner {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: default;
+    transition:
+        border-color 0.35s,
+        box-shadow 0.35s,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.35s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bfp-card-inner:hover {
+    border-color: rgba(196, 160, 100, 0.4);
+    background: rgba(196, 160, 100, 0.06);
+    box-shadow:
+        0 0 0 1px rgba(196, 160, 100, 0.25),
+        0 24px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(196, 160, 100, 0.1);
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Shimmer sweep */
+.bfp-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg,
+            transparent 25%,
+            rgba(196, 160, 100, 0.14) 50%,
+            transparent 75%);
+    transform: translateX(-120%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.bfp-card-inner:hover::before {
+    transform: translateX(120%);
+    transition: transform 0.7s ease;
+}
+
+/* ── Image area ── */
+.bfp-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, #111120, #0d0d1a);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.bfp-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(5, 5, 10, 0.9) 100%);
+    z-index: 1;
+}
+
+.bfp-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    display: block;
+}
+
+.bfp-card-inner:hover .bfp-product-img {
+    transform: scale(1.08);
+}
+
+.bfp-img-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: linear-gradient(135deg, #c4a064, #a07840);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 2px 12px rgba(196, 160, 100, 0.35);
+}
+
+.bfp-img-category {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(5, 5, 10, 0.75);
+    backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+/* Emoji fallback when no image */
+.bfp-emoji-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    background: linear-gradient(135deg, #111120, #0d0d1a);
+    flex-shrink: 0;
+}
+
+/* ── Card body ── */
+.bfp-card-body {
+    padding: 22px 22px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bfp-card-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 6px;
+    transition: color 0.3s;
+    font-family: 'Playfair Display', serif;
+}
+
+.bfp-card-inner:hover .bfp-card-name {
+    color: #c4a064;
+}
+
+.bfp-card-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(196, 160, 100, 0.7);
+    margin: 0 0 14px;
+    font-weight: 600;
+}
+
+.bfp-card-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    flex: 1;
+    margin: 0 0 18px;
+}
+
+/* ── Card footer ── */
+.bfp-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding-top: 14px;
+    margin-top: auto;
+}
+
+.bfp-card-specs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.bfp-spec-pill {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(196, 160, 100, 0.8);
+    background: rgba(196, 160, 100, 0.1);
+    border: 1px solid rgba(196, 160, 100, 0.2);
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
+.bfp-export-tag {
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5b8def;
+    background: rgba(39, 86, 200, 0.12);
+    border: 1px solid rgba(39, 86, 200, 0.28);
+    border-radius: 50px;
+    padding: 4px 11px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ── CTA ── */
+.bfp-cta {
+    text-align: center;
+    padding: 60px 24px 110px;
+    background: linear-gradient(0deg, #0a0a18 0%, #05050a 100%);
+}
+
+.bfp-cta-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 14px;
+}
+
+.bfp-cta-sub {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 460px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
+.bfp-cta-btn {
+    display: inline-block;
+    padding: 14px 38px;
+    background: linear-gradient(135deg, #c4a064, #a07840);
+    color: #fff;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 4px 24px rgba(196, 160, 100, 0.3);
+}
+
+.bfp-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(196, 160, 100, 0.5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .bfp-hero {
+        padding: 110px 20px 60px;
+    }
+
+    .bfp-grid-wrap {
+        padding: 0 16px 60px;
+    }
+
+    .bfp-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bfp-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Card clickable tweaks ── */
+.bfp-card {
+    cursor: pointer;
+}
+
+.bfp-card-zoom-hint {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(6px);
+    color: #c4a064;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 7px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(196, 160, 100, 0.35);
+    z-index: 4;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.bfp-card:hover .bfp-card-zoom-hint {
+    opacity: 1;
+}
+
+/* ── Modal Overlay ── */
+.bfp-modal-overlay {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: bfpOverlayIn 0.25s ease both;
+}
+
+@keyframes bfpOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ── Modal Panel ── */
+.bfp-modal {
+    background: #0d0d1a;
+    border: 1px solid rgba(196, 160, 100, 0.25);
+    border-radius: 24px;
+    overflow: hidden;
+    max-width: 760px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), 0 0 60px rgba(196, 160, 100, 0.08);
+    animation: bfpModalIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bfpModalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Close button */
+.bfp-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.bfp-modal-close:hover {
+    background: rgba(196, 160, 100, 0.2);
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Modal image */
+.bfp-modal-img-wrap {
+    width: 100%;
+    position: relative;
+    background: #08080f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    max-height: 260px;
+}
+
+.bfp-modal-img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
+    display: block;
+}
+
+.bfp-modal-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: linear-gradient(135deg, #c4a064, #a07840);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 50px;
+    box-shadow: 0 2px 12px rgba(196, 160, 100, 0.4);
+}
+
+.bfp-modal-emoji {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    background: linear-gradient(135deg, #111120, #0d0d1a);
+}
+
+/* Modal body */
+.bfp-modal-body {
+    padding: 28px 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bfp-modal-category {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c4a064;
+}
+
+.bfp-modal-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.bfp-modal-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(196, 160, 100, 0.65);
+    font-weight: 600;
+    margin: 0;
+}
+
+.bfp-modal-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(196, 160, 100, 0.3), transparent);
+    margin: 6px 0;
+}
+
+.bfp-modal-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.bfp-modal-export {
+    align-self: flex-start;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5b8def;
+    background: rgba(39, 86, 200, 0.12);
+    border: 1px solid rgba(39, 86, 200, 0.28);
+    border-radius: 50px;
+    padding: 5px 14px;
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .bfp-modal-body {
+        padding: 20px 20px 28px;
+    }
+
+    .bfp-modal {
+        border-radius: 16px;
+    }
+}

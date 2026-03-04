@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo.jpg'
 import './Footer.css'
 
@@ -35,31 +36,31 @@ export default function Footer() {
                     <h4>Quick Links</h4>
                     <ul>
                         {[
-                            ['hero', 'Home'], ['about', 'About'], ['products', 'Products'], ['why-us', 'Why Us'], ['contact', 'Contact']
-                        ].map(([id, label]) => (
-                            <li key={id}>
-                                <button onClick={() => scrollTo(id)}>{label}</button>
+                            ['/', 'Home'],
+                            ['/about', 'About'],
+                            ['/products', 'Products'],
+                            ['/why-us', 'Why Us'],
+                            ['/trusted-partners', 'Trusted Partners'],
+                            ['/contact', 'Contact'],
+                        ].map(([href, label]) => (
+                            <li key={href}>
+                                <Link to={href}>{label}</Link>
                             </li>
                         ))}
                     </ul>
                 </div>
 
-                <div className="footer-links-group">
-                    <h4>Products</h4>
-                    <ul>
-                        {['Premium Rice', 'Wheat & Flour', 'Cooking Oil', 'Spices', 'Pulses & Legumes'].map(p => (
-                            <li key={p}><button onClick={() => scrollTo('products')}>{p}</button></li>
-                        ))}
-                    </ul>
-                </div>
+
 
                 <div className="footer-links-group">
                     <h4>Contact</h4>
                     <ul className="footer-contact-list">
-                        <li>📍 Addis Ababa, Ethiopia</li>
-                        <li>📧 trade@bereketintl.com</li>
-                        <li>📞 +251 911 000 000</li>
-                        <li>⏰ Mon–Fri, 8am–6pm EAT</li>
+                        <li>🏢 3rd Floor, 13-Plaza, Bahria Town Phase 8, Islamabad, Pakistan</li>
+                        <li>🌐 Suite 205, 40 Hunt Street, Ajax, ON L1S 3M2, Canada</li>
+                        <li>📞 +92 333 564 7799</li>
+                        <li>📧 info@bereketfoods.com</li>
+                        <li>📧 info@bereketnaturals.com</li>
+                        <li>⏰ Mon–Sat, 9am–6pm PKT</li>
                     </ul>
                 </div>
             </div>

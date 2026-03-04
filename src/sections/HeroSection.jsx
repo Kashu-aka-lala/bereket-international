@@ -4,6 +4,8 @@ import { Environment, Stars, Float, MeshDistortMaterial } from '@react-three/dre
 import * as THREE from 'three'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import video1 from '../assets/video1.mp4'
+import video2 from '../assets/video2.mp4'
 import './HeroSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -22,7 +24,6 @@ function Globe() {
 
     return (
         <group position={[2.5, 0.5, -8]}>
-            {/* Core wireframe globe */}
             <mesh ref={meshRef}>
                 <icosahedronGeometry args={[4.5, 8]} />
                 <meshStandardMaterial
@@ -34,7 +35,6 @@ function Globe() {
                     emissiveIntensity={0.4}
                 />
             </mesh>
-            {/* Inner solid globe */}
             <mesh scale={0.96}>
                 <icosahedronGeometry args={[4.5, 3]} />
                 <MeshDistortMaterial
@@ -47,7 +47,6 @@ function Globe() {
                     metalness={0.8}
                 />
             </mesh>
-            {/* Outer glow ring */}
             <mesh ref={glowRef}>
                 <torusGeometry args={[5.6, 0.08, 8, 120]} />
                 <meshBasicMaterial color="#D4AF37" transparent opacity={0.4} />
@@ -56,11 +55,11 @@ function Globe() {
                 <torusGeometry args={[5.8, 0.05, 8, 120]} />
                 <meshBasicMaterial color="#2ECC71" transparent opacity={0.25} />
             </mesh>
-            {/* Glow sprite */}
             <pointLight color="#D4AF37" intensity={1.5} distance={20} />
         </group>
     )
 }
+
 
 // ────────── Floating Product ──────────
 function FloatingProduct({ position, geometry, color, delay = 0, scale = 1 }) {
@@ -174,52 +173,6 @@ function HeroScene() {
             <pointLight position={[-10, -5, -5]} intensity={0.5} color="#2ECC71" />
             <pointLight position={[5, 8, 2]} intensity={0.6} color="#D4AF37" />
 
-            <Globe />
-            <ParticleField />
-
-            {/* Floating products */}
-            <FloatingProduct
-                position={[-6.5, 2.5, -3]}
-                geometry={<boxGeometry args={[1.2, 2, 0.7]} />}
-                color="#c8a951"
-                delay={0}
-                scale={1}
-            />
-            <FloatingProduct
-                position={[6, -1.5, -4]}
-                geometry={<cylinderGeometry args={[0.5, 0.6, 2.5, 12]} />}
-                color="#e8c060"
-                delay={1.2}
-                scale={0.9}
-            />
-            <FloatingProduct
-                position={[-4, -2.5, -6]}
-                geometry={<sphereGeometry args={[0.9, 16, 16]} />}
-                color="#d4922a"
-                delay={2}
-                scale={1}
-            />
-            <FloatingProduct
-                position={[4.5, 3, -5]}
-                geometry={<boxGeometry args={[0.9, 1.4, 0.9]} />}
-                color="#3d9e5f"
-                delay={0.7}
-                scale={0.85}
-            />
-            <FloatingProduct
-                position={[-7, -0.5, -5]}
-                geometry={<cylinderGeometry args={[0.3, 0.5, 1.8, 8]} />}
-                color="#b8860b"
-                delay={1.8}
-                scale={1.1}
-            />
-            <FloatingProduct
-                position={[7, 1.5, -6]}
-                geometry={<torusGeometry args={[0.7, 0.3, 12, 30]} />}
-                color="#D4AF37"
-                delay={0.4}
-                scale={0.8}
-            />
         </>
     )
 }
@@ -274,10 +227,33 @@ export default function HeroSection() {
 
     return (
         <section id="hero" ref={sectionRef} className="hero-section">
+            {/* ── Video background ── */}
+            <div className="hero-video-wrapper">
+                <video
+                    className="hero-video"
+                    ref={(el) => {
+                        if (!el) return
+                        el.src = video1
+                        el.muted = true
+                        el.autoplay = true
+                        el.playsInline = true
+                        el.play().catch(() => { })
+                        el.onended = () => {
+                            if (el.src.includes('video1')) {
+                                el.src = video2
+                            } else {
+                                el.src = video1
+                            }
+                            el.play().catch(() => { })
+                        }
+                    }}
+                />
+            </div>
+
             <div className="hero-canvas-wrapper">
                 <Canvas
                     camera={{ position: [0, 0, 14], fov: 65 }}
-                    gl={{ antialias: true, alpha: false, toneMapping: THREE.ACESFilmicToneMapping }}
+                    gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping }}
                     dpr={[1, 2]}
                 >
                     <HeroScene />
@@ -285,14 +261,15 @@ export default function HeroSection() {
             </div>
 
             <div className="hero-overlay">
-                <div className="hero-badge">
+                <h2 className="hero-badge">
                     <span className="badge-dot" />
-                    <span>Global Food & Trade Excellence</span>
-                </div>
+                    <span>Global Food & Wholesale Commodity Trade</span>
+                </h2>
 
                 <h1 ref={headingRef} className="hero-heading">
                     Bereket<br />
                     <span className="gradient-shimmer">Internationals</span>
+                    <span className="sr-only"> - Premium Global Food Exporter & Wholesale Commodity Distributor</span>
                 </h1>
 
                 <p ref={subRef} className="hero-sub">
@@ -315,22 +292,7 @@ export default function HeroSection() {
                     </a>
                 </div>
 
-                <div className="hero-stats">
-                    <div className="hero-stat">
-                        <span className="stat-num">20+</span>
-                        <span className="stat-label">Countries</span>
-                    </div>
-                    <div className="hero-divider" />
-                    <div className="hero-stat">
-                        <span className="stat-num">500+</span>
-                        <span className="stat-label">Clients</span>
-                    </div>
-                    <div className="hero-divider" />
-                    <div className="hero-stat">
-                        <span className="stat-num">10+</span>
-                        <span className="stat-label">Years</span>
-                    </div>
-                </div>
+
             </div>
 
             <div className="hero-scroll-hint">

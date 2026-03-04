@@ -1,0 +1,479 @@
+/* ══════════════════════════════════════════════
+   TRUSTED PARTNERS SECTION
+   ══════════════════════════════════════════════ */
+
+.tp-section {
+    background: #05050a;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* ── Hero Banner ── */
+.tp-hero {
+    position: relative;
+    text-align: center;
+    padding: 140px 24px 80px;
+    background: linear-gradient(180deg, #0a0a18 0%, #05050a 100%);
+    overflow: hidden;
+}
+
+.tp-hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(196, 160, 100, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(196, 160, 100, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    animation: heroGlowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowPulse {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* ── Animated Particles ── */
+.tp-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.tp-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 160, 100, 0.7) 0%, transparent 70%);
+    animation: floatParticle var(--dur, 8s) ease-in-out infinite var(--delay, 0s);
+    opacity: 0;
+}
+
+@keyframes floatParticle {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.6);
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(1.2);
+    }
+}
+
+/* ── Hero Content Animations ── */
+.tp-hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #c4a064;
+    margin: 0 0 18px;
+    font-weight: 600;
+    animation: fadeSlideUp 0.8s ease both;
+}
+
+.tp-hero-title {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin: 0 0 20px;
+    background: linear-gradient(135deg, #fff 30%, #c4a064 70%, #fff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeSlideUp 0.9s ease 0.15s both, shimmerText 4s linear 1s infinite;
+}
+
+@keyframes shimmerText {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.tp-hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 36px;
+    animation: fadeSlideUp 1s ease 0.3s both;
+}
+
+.tp-hero-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c4a064, transparent);
+    margin: 0 auto;
+    animation: expandLine 1.2s ease 0.5s both;
+}
+
+@keyframes expandLine {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 80px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Stats Bar ── */
+.tp-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 40px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(196, 160, 100, 0.15);
+    border-bottom: 1px solid rgba(196, 160, 100, 0.15);
+}
+
+.tp-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0 48px;
+}
+
+.tp-stat-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #c4a064;
+    letter-spacing: -0.02em;
+    transition: transform 0.3s;
+}
+
+.tp-stat:hover .tp-stat-num {
+    transform: scale(1.12);
+}
+
+.tp-stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.tp-stat-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(196, 160, 100, 0.25);
+}
+
+/* ── Partners Grid ── */
+.tp-grid-wrapper {
+    padding: 80px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+/* ── Card Entrance Animation ── */
+.tp-card {
+    opacity: 0;
+    transform: translateY(36px) scale(0.92);
+    transition:
+        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tp-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ── Card Inner with shimmer + glow ── */
+.tp-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 20px 22px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    transition:
+        background 0.35s,
+        border-color 0.35s,
+        box-shadow 0.35s,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Shimmer sweep on hover */
+.tp-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: -60% -50%;
+    background: linear-gradient(115deg,
+            transparent 30%,
+            rgba(196, 160, 100, 0.18) 50%,
+            transparent 70%);
+    transform: translateX(-100%) rotate(15deg);
+    transition: transform 0s;
+    pointer-events: none;
+}
+
+.tp-card-inner:hover::before {
+    transform: translateX(100%) rotate(15deg);
+    transition: transform 0.65s ease;
+}
+
+/* Subtle ambient glow ring */
+.tp-card-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px rgba(196, 160, 100, 0);
+    transition: box-shadow 0.35s;
+    pointer-events: none;
+}
+
+.tp-card-inner:hover::after {
+    box-shadow: inset 0 0 0 1px rgba(196, 160, 100, 0.45);
+}
+
+.tp-card-inner:hover {
+    background: rgba(196, 160, 100, 0.08);
+    border-color: rgba(196, 160, 100, 0.35);
+    box-shadow:
+        0 0 32px rgba(196, 160, 100, 0.15),
+        0 8px 40px rgba(0, 0, 0, 0.45);
+    transform: translateY(-6px) scale(1.03);
+}
+
+/* ── Logo Wrapper ── */
+.tp-logo-wrap {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.35s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tp-card-inner:hover .tp-logo-wrap {
+    box-shadow: 0 8px 28px rgba(196, 160, 100, 0.28);
+    transform: scale(1.06) rotate(-1deg);
+}
+
+.tp-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.35s;
+}
+
+.tp-card-inner:hover .tp-logo {
+    transform: scale(1.08);
+}
+
+/* ── Card Name ── */
+.tp-card-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    letter-spacing: 0.02em;
+    transition: color 0.3s, letter-spacing 0.3s;
+}
+
+.tp-card-inner:hover .tp-card-name {
+    color: #c4a064;
+    letter-spacing: 0.06em;
+}
+
+/* ── Floating marquee (infinite scroll) ── */
+.tp-marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 32px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.tp-marquee-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: marqueeScroll 35s linear infinite;
+}
+
+.tp-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.tp-marquee-logo {
+    flex: 0 0 auto;
+    width: 90px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.tp-marquee-logo:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 24px rgba(196, 160, 100, 0.3);
+}
+
+.tp-marquee-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* ── CTA ── */
+.tp-cta {
+    text-align: center;
+    padding: 80px 24px 120px;
+    background: linear-gradient(0deg, #0a0a18 0%, #05050a 100%);
+}
+
+.tp-cta-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: #fff;
+}
+
+.tp-cta-sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+
+.tp-cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #c4a064, #a07840);
+    color: #fff;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 4px 24px rgba(196, 160, 100, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.tp-cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0s;
+}
+
+.tp-cta-btn:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.tp-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(196, 160, 100, 0.5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .tp-hero {
+        padding: 120px 20px 60px;
+    }
+
+    .tp-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tp-stat-divider {
+        width: 60px;
+        height: 1px;
+    }
+
+    .tp-stat {
+        padding: 0;
+    }
+
+    .tp-grid-wrapper {
+        padding: 50px 20px;
+    }
+
+    .tp-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px;
+    }
+}

@@ -4,9 +4,8 @@ import { gsap } from 'gsap'
 import './WhyChooseUs.css'
 
 const STATS = [
-    { num: 20, suffix: '+', label: 'Countries Served', icon: '🌍' },
-    { num: 500, suffix: '+', label: 'Happy Clients', icon: '🤝' },
-    { num: 10, suffix: '+', label: 'Years Experience', icon: '🏆' },
+    { num: 200, suffix: '+', label: 'Happy Clients', icon: '🤝', tagline: 'National and international 200+ clients', color: '#5B8DEF' },
+    { num: 7, suffix: '', label: 'Product Brands', icon: '🏷️', tagline: 'Distinct Bereket food brands exported', color: '#9B59B6' },
 ]
 
 const FEATURES = [
@@ -92,15 +91,16 @@ export default function WhyChooseUs() {
 
                 {/* Stats Row */}
                 <div className="stats-row">
-                    {STATS.map(({ num, suffix, label, icon }, i) => (
+                    {STATS.map(({ num, suffix, label, icon, tagline, color }, i) => (
                         <div
                             key={label}
                             className={`stat-card glass-card ${inView ? 'visible' : ''}`}
-                            style={{ transitionDelay: `${i * 0.15}s` }}
+                            style={{ transitionDelay: `${i * 0.15}s`, '--stat-color': color }}
                         >
                             <span className="stat-card-icon">{icon}</span>
                             <AnimatedCounter target={num} suffix={suffix} isVisible={inView} />
                             <span className="stat-card-label">{label}</span>
+                            <span className="stat-card-tagline">{tagline}</span>
                         </div>
                     ))}
                 </div>

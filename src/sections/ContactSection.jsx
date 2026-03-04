@@ -69,10 +69,36 @@ export default function ContactSection() {
 
                     <div className="contact-details">
                         {[
-                            { icon: '📍', label: 'Headquarters', val: 'Addis Ababa, Ethiopia' },
-                            { icon: '📧', label: 'Email', val: 'trade@bereketintl.com' },
-                            { icon: '📞', label: 'Phone', val: '+251 911 000 000' },
-                            { icon: '⏰', label: 'Business Hours', val: 'Mon–Fri, 8am–6pm EAT' },
+                            {
+                                icon: '🏢',
+                                label: 'Head Office — Islamabad',
+                                val: '3rd Floor, 13-Plaza, Overseas V Commercial, Bahria Town Phase 8, Islamabad, Pakistan',
+                            },
+                            {
+                                icon: '🏭',
+                                label: 'Factory Outlet — Multan',
+                                val: '2 Km From Bahawalpur Bypass, Bahawalpur Road, Multan, Pakistan',
+                            },
+                            {
+                                icon: '🌐',
+                                label: 'Overseas Office — Canada',
+                                val: 'Suite 205, 40 Hunt Street, Ajax, ON L1S 3M2, Canada',
+                            },
+                            {
+                                icon: '📞',
+                                label: 'Phone',
+                                val: '+92 333 564 7799  |  +92 51 275 2276',
+                            },
+                            {
+                                icon: '📧',
+                                label: 'Email — Foods Division',
+                                val: 'info@bereketfoods.com',
+                            },
+                            {
+                                icon: '📧',
+                                label: 'Email — Naturals Division',
+                                val: 'info@bereketnaturals.com',
+                            },
                         ].map(({ icon, label, val }) => (
                             <div key={label} className="contact-detail">
                                 <span className="contact-icon">{icon}</span>
@@ -82,6 +108,30 @@ export default function ContactSection() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* ── Social Media ── */}
+                    <div className="contact-social-section">
+                        <p className="contact-social-heading">Social Media</p>
+                        <div className="contact-social-links">
+                            {[
+                                { icon: '📘', label: 'Facebook', url: 'https://www.facebook.com/bereketfoods' },
+                                { icon: '📸', label: 'Instagram', url: 'https://www.instagram.com/bereketfoods' },
+                                { icon: '💼', label: 'LinkedIn', url: 'https://www.linkedin.com/company/bereketfoods' },
+                                { icon: '▶️', label: 'YouTube', url: 'https://www.youtube.com/@bereketfoods' },
+                            ].map(({ icon, label, url }) => (
+                                <a
+                                    key={label}
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="contact-social-pill"
+                                >
+                                    <span>{icon}</span>
+                                    <span>{label}</span>
+                                </a>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

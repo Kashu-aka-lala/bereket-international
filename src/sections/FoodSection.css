@@ -1,0 +1,244 @@
+/* ================================================
+   DIVISION CARDS — shared between Food & Beauty
+   ================================================ */
+
+.divisions-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+/* Subtle separator between sections */
+.beauty-divisions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(39, 86, 200, 0.2), transparent);
+}
+
+.divisions-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* ────────────────────────────────────────────────
+   THE DIVISION CARD
+   ──────────────────────────────────────────────── */
+.division-card {
+    --mx: 0px;
+    --my: 0px;
+
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(39, 86, 200, 0.22);
+    background: rgba(7, 12, 40, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+    /* subtle translate toward mouse */
+    transform: translate(calc(var(--mx) * 0.04), calc(var(--my) * 0.04));
+
+    /* entrance */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.divisions-section.visible .division-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.division-card:hover {
+    border-color: rgba(91, 141, 239, 0.5);
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(39, 86, 200, 0.15),
+        inset 0 0 40px rgba(39, 86, 200, 0.04);
+    transform: translateY(-8px) !important;
+}
+
+/* Glow blob that follows mouse */
+.division-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at calc(50% + var(--mx)) calc(50% + var(--my)),
+            rgba(39, 86, 200, 0.12) 0%,
+            transparent 65%);
+    pointer-events: none;
+    transition: background 0.1s ease;
+    z-index: 0;
+}
+
+/* ── Card body ── */
+.division-card-body {
+    position: relative;
+    z-index: 1;
+    padding: 3.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── Tag ── */
+.division-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(91, 141, 239, 0.65);
+    margin-bottom: 1.6rem;
+}
+
+/* ── Icon ── */
+.division-icon-wrap {
+    margin-bottom: 1.2rem;
+}
+
+.division-icon {
+    font-size: 3.2rem;
+    line-height: 1;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.5));
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.division-card:hover .division-icon {
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* ── Name & tagline ── */
+.division-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+}
+
+.division-tagline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(91, 141, 239, 0.85);
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+}
+
+/* ── Description ── */
+.division-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    max-width: 560px;
+    margin-bottom: 2rem;
+}
+
+/* ── Chips ── */
+.division-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.division-chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(91, 141, 239, 0.85);
+    background: rgba(39, 86, 200, 0.1);
+    border: 1px solid rgba(39, 86, 200, 0.22);
+    border-radius: 50px;
+    padding: 0.3rem 0.85rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.division-card:hover .division-chip {
+    background: rgba(39, 86, 200, 0.18);
+    border-color: rgba(91, 141, 239, 0.4);
+}
+
+/* ── CTA row ── */
+.division-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: linear-gradient(135deg, #2756C8, #1E3799);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    align-self: flex-start;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.division-card:hover .division-cta {
+    box-shadow: 0 12px 32px rgba(39, 86, 200, 0.45);
+    transform: translateX(4px);
+}
+
+.division-cta-arrow {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.division-card:hover .division-cta-arrow {
+    transform: translateX(5px);
+}
+
+/* ── Corner accent decoration ── */
+.division-corner-accent {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(39, 86, 200, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.division-card:hover .division-corner-accent {
+    opacity: 1.5;
+}
+
+/* ── Beauty override: slightly different accent tint ── */
+.beauty-division .division-corner-accent {
+    background: radial-gradient(circle, rgba(91, 141, 239, 0.12) 0%, transparent 70%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .division-card-body {
+        padding: 2.2rem 1.8rem;
+    }
+
+    .division-name {
+        font-size: 1.8rem;
+    }
+
+    .divisions-section {
+        padding: 3rem 0;
+    }
+}

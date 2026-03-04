@@ -1,11 +1,72 @@
-.intro-scene {
+.intro-container {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #000;
+    background: #03050f;
+    /* Deep dark blue to match theme */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
-.intro-scene canvas {
-    display: block;
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.intro-logo {
+    height: 100px;
+    /* Make it slightly larger as requested */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 2.5rem;
+    filter: drop-shadow(0 15px 35px rgba(91, 141, 239, 0.45)) drop-shadow(0 5px 15px rgba(212, 175, 55, 0.2));
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    perspective: 1200px;
+    /* Add perspective for the 3D rotation */
+}
+
+.intro-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 600;
+}
+
+.intro-title span {
+    color: #5B8DEF;
+    /* Corporate Blue */
+}
+
+.intro-divider {
+    width: 60px;
+    height: 2px;
+    background: #D4AF37;
+    /* Gold accent */
+    margin: 1.5rem 0;
+    transform-origin: center;
+}
+
+.intro-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    margin: 0;
 }
